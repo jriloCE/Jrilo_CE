@@ -1,0 +1,271 @@
+{
+  "useState": {
+    "prefix": ["useState", "us"],
+    "body": [
+      "const [${2:state}, set${2/(.*)/${1:/capitalize}/g}] = useState(${1:initialState})",
+      ""
+		]
+  },
+  "useEffect": {
+    "prefix": ["useEffect", "ue"],
+    "body": [
+			"useEffect(() => {",
+			"  ${1:componentDidUpdate}",
+			"}, [${2:dependencies}])",
+      ""
+		]
+  },
+  "useEffect with return": {
+    "prefix": ["useEffectReturn", "uer"],
+    "body": [
+			"useEffect(() => {",
+      "  ${1:componentDidMount}",
+      "",
+      "  return () => {",
+      "    ${2:componentWillUnmount}",
+      "  }",
+      "}, [${3:dependencies}])",
+      ""
+		]
+  },
+  "useContext": {
+    "prefix": ["useContext", "uco"],
+    "body": [
+			"const ${2:value} = useContext(${1:ValueContext})",
+      ""
+		]
+  },
+  "useReducer": {
+    "prefix": ["useReducer", "urd"],
+    "body": [
+			"const [state, dispatch] = useReducer(${1:reducer}, ${2:initialState}",
+      ""
+		]
+  },
+  "useCallback": {
+    "prefix": ["useCallback", "uc"],
+    "body": [
+			"const memoizedCallback = useCallback(${1:callback}, [${2:dependencies}])",
+      ""
+		]
+  },
+  "useMemo": {
+    "prefix": ["useMemo", "um"],
+    "body": [
+			"const memoizedValue = useMemo(() => ${1:value}, [${2:dependencies}])",
+      ""
+		]
+  },
+  "useRef": {
+    "prefix": ["useRef", "ur"],
+    "body": [
+			"const ${2:value}Ref = useRef(${1:initialValue})",
+      ""
+		]
+  },
+  "useImperativeHandle": {
+    "prefix": ["useImperativeHandle", "uih"],
+    "body": [
+			"useImperativeHandle(${1:ref}, ${2:createHandle}, [${3:dependencies}])",
+      ""
+		]
+  },
+  "useLayoutEffect": {
+    "prefix": ["useLayoutEffect", "ul"],
+    "body": [
+			"useLayoutEffect(() => {",
+      "  ${1:componentDidUpdate}",
+      "}, [${2:dependencies}])",
+      ""
+		]
+  },
+  "useLayoutEffect with return": {
+    "prefix": ["useLayoutEffectReturn", "ul"],
+    "body": [
+      "useLayoutEffect(() => {",
+      "  ${1:componentDidMount}",
+      "",
+      "  return () => {",
+      "    ${2:componentWillUnmount}",
+      "  }",
+      "}, [${3:dependencies}])",
+      ""
+		]
+  },
+  "useDebugValue": {
+    "prefix": ["useDebugValue", "ud"],
+    "body": [
+      "useDebugValue(${1:value})",
+      ""
+    ]
+  },
+  "useDeferredValue": {
+    "prefix": ["useDeferredValue", "udf"],
+    "body": [
+      "const deferred${2:value} = useDeferredValue(${1:value})",
+      ""
+    ]
+  },
+  "useTransition": {
+    "prefix": ["useTransition", "ut"],
+    "body": [
+      "const [${1:isPending}, ${2:startTransition}] = useTransition()",
+      ""
+    ]
+  },
+  "useId": {
+    "prefix": ["useId", "uid"],
+    "body": [
+      "const ${1:id} = useId()",
+      ""
+    ]
+  },
+  "useSyncExternalStore": {
+    "prefix": ["useSyncExternalStore", "uses"],
+    "body": [
+      "const ${1:store} = useSyncExternalStore(${1:subscribe}, ${2:getSnapshot})",
+      ""
+    ]
+  },
+  "useInsertionEffect": {
+    "prefix": ["useInsertionEffect", "uie"],
+    "body": [
+      "useInsertionEffect(${1:didUpdate})",
+      ""
+    ]
+  },
+  "useModel": {
+    "prefix": ["useModel", "umo"],
+    "body": [
+      "const { ${2:data} } = useModel('${1:modelName}')",
+      ""
+    ]
+  },
+  "创建 React 函数组件": {
+    "prefix": ["createReactFunctionComponent", "crfc"],
+    "body": [
+      "import React from 'react'",
+      "",
+      "const ${1:${TM_FILENAME_BASE}} = () => {",
+      "  return (",
+      "    <div>${1:text}</div>",
+      "  )",
+      "}",
+      "",
+      "export default ${1:${TM_FILENAME_BASE}}",
+      ""
+    ]
+  },
+  "创建 React 类组件": {
+    "prefix": ["createReactClassComponent", "crcc"],
+    "body": [
+      "import React, { ${1|PureComponent,Component|} } from 'react'",
+      "",
+      "export default class ${2:${TM_FILENAME_BASE}} extends ${1|PureComponent,Component|} {",
+      "",
+      "  render() {",
+      "    return (",
+      "      <div>${2:text}</div>",
+      "    )",
+      "  }",
+      "}",
+      ""
+    ]
+  },
+  "const getName = () => {}": {
+    "prefix": ["constFunction", "cfn", "fn"],
+    "body": [
+      "const ${1:getName} =${2| , async |}() => {",
+      "   $2",
+      "}",
+      ""
+    ]
+  },
+  "() => {}": {
+    "prefix": ["arrowFunction", "afn", "fn"],
+    "body": "($1) => { $2 }"
+  },
+  "async () => {}": {
+    "prefix": ["asyncFunction", "afn"],
+    "body": "async ($1) => { $2 }"
+  },
+  "Promise": {
+    "prefix": ["Promise"],
+    "body": [
+      "new Promise((resolve, reject) => {",
+      "  $1",
+      "})",
+      ""
+    ]
+  },
+  "打印日志": {
+    "prefix": ["console", "log"],
+    "body": [
+      "console.${1|log,warn,error,table,time,timeEnd,count|}($2)",
+      ""
+    ]
+  },
+  "const timer = setTimeout/setInterval..": {
+    "prefix": ["setTimeout", "st"],
+    "body": [
+      "const ${2:timer} = ${1|setTimeout,setInterval|}(() => { ${3:doSomething} }, ${4:300})",
+      ""
+    ]
+  },
+  "import React from 'react'": {
+    "prefix": ["import React", "ir"],
+    "body": [
+      "import React from 'react'",
+      ""
+    ]
+  },
+  "import alias from 'module'": {
+    "prefix": ["import from", "imf"],
+    "body": [
+      "import ${2:alias} from '${1:moduel}'",
+      ""
+    ]
+  },
+  "import { name } from 'module'": {
+    "prefix": ["imd"],
+    "body": [
+      "import { ${2:name} } from '${1:moduel}'",
+      ""
+    ]
+  },
+  "import * as alias from 'module'": {
+    "prefix": ["ima"],
+    "body": [
+      "import * as ${2:alias} from '${1:moduel}'",
+      ""
+    ]
+  },
+  "import 'module'": {
+    "prefix": ["im"],
+    "body": [
+      "import '${1:./index.css}'",
+      ""
+    ]
+  },
+  "const/let name = value": {
+    "prefix": ["cst", "let"],
+    "body": [
+      "${1|const,let|} ${2:name} = ${3:value}",
+      ""
+    ]
+  },
+  "const [name] = value": {
+    "prefix": "csta",
+    "body": [
+      "const [${1:name}] = ${2:value}",
+      ""
+    ]
+  },
+  "const { name } = value": {
+    "prefix": "cstd",
+    "body": [
+      "const { ${1:name} } = ${2:value}",
+      ""
+    ]
+  }
+}

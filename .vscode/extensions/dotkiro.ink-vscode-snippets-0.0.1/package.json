@@ -1,0 +1,80 @@
+{
+	"name": "ink-vscode-snippets",
+	"version": "0.0.1",
+	"displayName": "React Snippets",
+	"description": "React, ES7+ snippets in JavaScript/TypeScript.",
+	"publisher": "dotkiro",
+	"browser": "./dist/index.js",
+	"main": "./dist/index.js",
+	"scripts": {
+		"start": "echo \"Error: no test specified\" && exit 1",
+		"build": "",
+		"vscode:prepublish": "echo \"prepublish\"",
+		"publish": "npx vsce package && npx vsce publish"
+	},
+	"activationEvents": [
+		"onLanguage:typescript",
+		"onLanguage:typescriptReact",
+		"onLanguage:javascript",
+		"onLanguage:javascriptReact"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./source/snippets/index.json"
+			},
+			{
+				"language": "javascriptreact",
+				"path": "./source/snippets/index.json"
+			},
+			{
+				"language": "typescript",
+				"path": "./source/snippets/index.json"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./source/snippets/index.json"
+			}
+		]
+	},
+	"keywords": [
+		"snippets",
+		"react",
+		"javascript",
+		"typescript",
+		"prettier"
+	],
+	"engines": {
+		"vscode": "^1.67.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"extensionKind": [
+		"ui",
+		"workspace"
+	],
+	"author": "Kiro",
+	"license": "Apache-2.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ink-js/VSCode.git"
+	},
+	"devDependencies": {
+		"vsce": "^2.8.0"
+	},
+	"__metadata": {
+		"id": "35851897-825d-435a-b9b1-5018e6414082",
+		"publisherId": "ea824e01-6ef8-41d3-9322-bcf76bac5378",
+		"publisherDisplayName": "dotkiro",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1730448896055,
+		"pinned": false,
+		"preRelease": false,
+		"source": "gallery"
+	}
+}
