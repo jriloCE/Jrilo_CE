@@ -1,3 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+  
+  .tech-box1 {
+    transition: margin-left 0.3s ease-in-out; 
+  }
+  
+  .tech-container1:hover .tech-box1 {
+    margin-left: -50px;
+  }
+
+  .tech-box2 {
+    transition: margin-left 0.3s ease-in-out; 
+  }
+  
+  .tech-container2:hover .tech-box2 {
+    margin-left: -10px;
+  }
+  
+
+  .tech-box3 {
+    transition: margin-left 0.3s ease-in-out; 
+  }
+  
+  .tech-container3:hover .tech-box3 {
+    margin-left: -90px;
+  }
+
+  /* img{
+    height: 90%;
+    width: 100%;
+  } */
+
+  .btn-active{ 
+    font-weight: bold;
+    background-color: #D7AE61;
+  }
